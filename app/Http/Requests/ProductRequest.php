@@ -24,6 +24,7 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
+            'id_products' => 'required|max:255',
             'name' => 'required|max:255',
             'color' => 'required|max:255',
             'description' => 'required',

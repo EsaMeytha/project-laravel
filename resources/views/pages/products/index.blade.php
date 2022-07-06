@@ -27,6 +27,7 @@
     <thead>
         <tr>
             <th>#</th>
+            <th>Kode Product</th>
             <th>Name Product</th>
             <th>Color</th>
             <th>Description</th>
@@ -37,7 +38,8 @@
     <tbody>
     @forelse($items as $e=>$item)
             <tr>
-            <td>{{ $e+1 }}</td>
+            <td>{{ $e+1 }}
+            <td>{{ $item->id_products }}</td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->color }}</td>
             <td>{{ $item->description }}</td>

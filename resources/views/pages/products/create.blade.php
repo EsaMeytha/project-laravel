@@ -23,6 +23,13 @@
 <form action="{{ route('product.store') }}" method="POST">
 @csrf
 <div class="form-group">
+<label for="id_products" class="form-control-label"> Kode Product </label>
+<input type="text" name="id_products" value="{{ old('id_products') }}"
+class="form-control @error('id_products') is=invalid @enderror"/>
+@error('id_products') <div class="text-mute">{{ $message }}</div> 
+@enderror
+</div>
+<div class="form-group">
 <label for="name" class="form-control-label"> Name Product </label>
 <input type="text" name="name" value="{{ old('name') }}"
 class="form-control @error('name') is=invalid @enderror"/>

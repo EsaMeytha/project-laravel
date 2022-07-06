@@ -27,54 +27,49 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Name</th>
-            <th>No.HP</th>
-            <th>id-product</th>
-            <th>Name</th>
+            <th>Name Customer</th>
+            <th>Kode Product</th>
+            <th>Product</th>
             <th>Color</th>
             <th>Price</th>
             <th>Qty</th>
             <th>Total</th>
             <th>Status</th>
-            <!-- <th>Action</th> -->
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        @forelse($items as $item)
-        <tr>
-            <td>{{ $item->id }}</td>
-            <td>{{ $item->name_cust }}</td>
-            <td>{{ $item->number }}</td>
-            <td>{{ $item->id_products }}</td>
-
-            <td>{{ $item->name }}</td>
-            <td>{{ $item->color }}</td>
-            <td>{{ $item->price }}</td>
-              
-            <td>{{ $item->quantity }}</td>
-            <td>{{ $item->price * $item->qty }}</td>
+                {{-- $data adalah variabel yang dikirmkan dari controller dan diinisialisasi sebagai $item --}}
+                {{-- sedangkan $k adalah index dari tiap data --}}
+                @foreach ($data as $k => $item)
+                    <tr>
+                        {{-- karena index dimulai dari 0 maka kita perlu menambahkan angka 1 --}}
+                        <td>{{$k+1}}</td> 
+                        <td>{{$item->name_cust}}</td>
+                        <td>{{$item->id_products}}</td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->color}}</td>
+                        <td>{{$item->price}}</td>
+                        <td>{{$item->quantity}}</td>
+                   
+            <td>{{ $item->price * $item->quantity }}</td>
             <td>
                           @if ($item->status == 0)
-                          <span class='badge badge-warning'>Pending</span>
+                          <span class='badge badge-warning'>PENDING</span>
                           @elseif ($item->status == 1)
                           <span class='badge badge-success'>LUNAS</span>
                           @else
                           <span class='badge badge-danger'>CANCEL</span>
                           @endif
-            </td>
-
-            
-
-<!-- <td>
-<a href="{{route('approved', $item->id)}}" class='badge badge-success'>LUNAS</a>
-<a href="{{route('rejected', $item->id)}}" class='badge badge-danger'>CANCEL</a>
-</td> -->
+  
+<td>
+<a href="{{route('approved', $item->id)}}" class='badge badge-success'><i class='fa fa-check'></i></a>
+<a href="{{route('rejected', $item->id)}}" class='badge badge-danger'><i class='fa fa-window-close'></i></a>
+</td>
 </tr>
-@empty
-<tr><td colspan="6" class="text-center">Data Tidak Ditemukan</td></tr>
-@endforelse
-    </tbody>
+@endforeach
 </table>
+</tbody>
 </div>
 </div>
 </div>

@@ -17,7 +17,7 @@ class Customer extends Model
 
     ];
 
-    public function details(){
+    public function transaction(){
         return $this->hasMany(Transaction::class, 'customers_id');
     }
         
