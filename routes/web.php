@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\DashboardController@index')->name('home');
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 Route::get('logout','App\Http\Controllers\Auth\LoginController@logout');
 
 Route::resource('product','App\Http\Controllers\ProductController');
+Route::resource('customer','App\Http\Controllers\CustomerController');
 Route::resource('transactions','\App\Http\Controllers\TransactionController');
 
 Route::get('rejected/{id}', 'App\Http\Controllers\DashboardController@rejected')->name('rejected');

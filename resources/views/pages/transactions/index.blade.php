@@ -49,10 +49,11 @@
                         <td>{{$item->id_products}}</td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->color}}</td>
-                        <td>{{$item->price}}</td>
+                        <td>{{ number_format($item->price,0,",",".") }}</td>
                         <td>{{$item->quantity}}</td>
+                        
                    
-            <td>{{ $item->price * $item->quantity }}</td>
+            <td>{{ number_format($item->price * $item->quantity,0,",",".") }}</td>
             <td>
                           @if ($item->status == 0)
                           <span class='badge badge-warning'>PENDING</span>
@@ -71,6 +72,13 @@
 </table>
 </tbody>
 </div>
+<!-- /.content-wrapper -->
+<footer class="main-footer"> 
+    <div class="float-right">
+    <strong>TOTAL PAYMENT : Rp.</strong>
+      <b>{{ number_format($total_sum,0,",",".") }}</b>
+    </div>
+  </footer>
 </div>
 </div>
 </div>

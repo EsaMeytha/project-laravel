@@ -20,7 +20,7 @@
 <div class="col-12">
 <div class="card">
 <div class="card-body">
-    <h4 class="box-title">View Products</h4>
+    <h4 class="box-title">View Customers</h4>
 </div>
 <div class="card-body">
 <table class="table">
@@ -28,10 +28,10 @@
         <tr>
             <th>#</th>
             <th>Kode Product</th>
-            <th>Name Product</th>
-            <th>Color</th>
-            <th>Description</th>
-            <th>Price</th>
+            <th>Name Customer</th>
+            <th>Address</th>
+            <th>Number</th>
+            <th>Qty</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -40,15 +40,15 @@
             <tr>
             <td>{{ $e+1 }}
             <td>{{ $item->id_products }}</td>
-            <td>{{ $item->name }}</td>
-            <td>{{ $item->color }}</td>
-            <td>{{ $item->description }}</td>
-            <td>{{ number_format($item->price,0,",",".") }}</td>
+            <td>{{ $item->name_cust }}</td>
+            <td>{{ $item->address }}</td>
+            <td>{{ $item->number }}</td>
+            <td>{{ $item->quantity }}</td>
 <td>
-<a href="{{ route('product.edit', $item->id)  }}" class="btn btn-primary btn-sm">
+<a href="{{ route('customer.edit', $item->id)  }}" class="btn btn-primary btn-sm">
 <i class="fa fa-pen"></i>
 </a>
-<form action="{{ route('product.destroy', $item->id) }}" method="POST" class="d-inline">
+<form action="{{ route('customer.destroy', $item->id) }}" method="POST" class="d-inline">
 @csrf
 @method('delete')
     <button class="btn btn-danger btn-sm">

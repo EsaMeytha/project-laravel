@@ -27,8 +27,12 @@ class TransactionController extends Controller
               ->join('products', 'products.id_products', '=', 'customers.id_products')
               ->get();
 
-      //tampilkan view barang dan kirim datanya ke view tersebut
-      return view('pages.transactions.index')->with('data', $data);
+      $total_sum = DB::table('customers')
+              ->join('products', 'products.id_products', '=', 'customers.id_products')
+              ->sum(DB::raw('products.price * customers.quantity'));
+                      
+      return view('pages.transactions.index',compact('data','total_sum'));  
   }
+
 
 }
