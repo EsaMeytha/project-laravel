@@ -28,6 +28,7 @@
         <tr>
             <th>#</th>
             <th>Name Customer</th>
+            <th>No. Hp</th>
             <th>Kode Product</th>
             <th>Product</th>
             <th>Color</th>
@@ -46,6 +47,7 @@
                         {{-- karena index dimulai dari 0 maka kita perlu menambahkan angka 1 --}}
                         <td>{{$k+1}}</td> 
                         <td>{{$item->name_cust}}</td>
+                        <td>{{$item->number}}</td>
                         <td>{{$item->id_products}}</td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->color}}</td>
@@ -64,8 +66,8 @@
                           @endif
   
 <td>
-<a href="{{route('approved', $item->id)}}" class='badge badge-success'><i class='fa fa-check'></i></a>
-<a href="{{route('rejected', $item->id)}}" class='badge badge-danger'><i class='fa fa-window-close'></i></a>
+<a href="{{route('approved', $item->number)}}" class='badge badge-success'><i class='fa fa-check'></i></a>
+<a href="{{route('rejected', $item->number)}}" class='badge badge-danger'><i class='fa fa-window-close'></i></a>
 </td>
 </tr>
 @endforeach

@@ -13,7 +13,8 @@ class Customer extends Model
         'name_cust',
         'number',
         'address',
-        'quantity'
+        'quantity',
+        'status'
 
     ];
 
