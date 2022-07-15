@@ -80,7 +80,7 @@
               <div class="inner">
                 <h3>{{ $total_payment }}</h3>
 
-                <p>Customers Payment</p>
+                <p>Customers Lunas</p>
                 <h6>Rp. {{ number_format($total_lunas,0,",",".") }}</h6>
               </div>
               <div class="icon">
